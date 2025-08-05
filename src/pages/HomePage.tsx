@@ -256,6 +256,70 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-4 py-2 mb-6">
+                <Users className="w-4 h-4" />
+                <span className="text-sm font-semibold">About Eagle Roofing</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+                Your Trusted Roofing Partner
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                For over 15 years, Eagle Roofing has been the premier choice for residential and 
+                commercial roofing services in the greater metro area. Our commitment to excellence, 
+                quality craftsmanship, and customer satisfaction has made us a trusted name in the industry.
+              </p>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Quality First</h3>
+                    <p className="text-gray-600">We use only premium materials and proven techniques to ensure your roof stands the test of time.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Expert Team</h3>
+                    <p className="text-gray-600">Our licensed and insured professionals bring decades of combined experience to every project.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">Reliable Service</h3>
+                    <p className="text-gray-600">From emergency repairs to planned installations, we're here when you need us most.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <img
+                src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Professional roofing team at work"
+                className="w-full h-96 object-cover rounded-2xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-xl border border-gray-100">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-1">15+</div>
+                  <div className="text-sm text-gray-600">Years of Excellence</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Overview */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -364,6 +428,120 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 rounded-full px-4 py-2 mb-6">
+              <Star className="w-4 h-4" />
+              <span className="text-sm font-semibold">Customer Reviews</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              What Our Customers Say
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Don't just take our word for it. Here's what our satisfied customers 
+              have to say about their experience with Eagle Roofing.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex items-center mb-6">
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+              </div>
+              <blockquote className="text-gray-700 mb-6 leading-relaxed">
+                "Eagle Roofing did an outstanding job on our roof replacement. The team was professional, 
+                efficient, and cleaned up perfectly. Our new roof looks amazing and we couldn't be happier!"
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  S
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Sarah Johnson</div>
+                  <div className="text-sm text-gray-600">Homeowner</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex items-center mb-6">
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+              </div>
+              <blockquote className="text-gray-700 mb-6 leading-relaxed">
+                "When our commercial building needed emergency roof repairs, Eagle Roofing responded 
+                immediately. Their 24/7 service saved us from major water damage. Highly recommended!"
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  M
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Mike Rodriguez</div>
+                  <div className="text-sm text-gray-600">Business Owner</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex items-center mb-6">
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+              </div>
+              <blockquote className="text-gray-700 mb-6 leading-relaxed">
+                "The metal roofing installation exceeded our expectations. The crew was knowledgeable, 
+                respectful, and completed the job on time and within budget. Excellent workmanship!"
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  L
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Lisa Chen</div>
+                  <div className="text-sm text-gray-600">Property Manager</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center space-x-8 bg-gray-50 rounded-2xl px-8 py-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gray-900 mb-1">4.9</div>
+                <div className="flex justify-center space-x-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <div className="text-sm text-gray-600">Average Rating</div>
+              </div>
+              <div className="w-px h-12 bg-gray-300"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gray-900 mb-1">500+</div>
+                <div className="text-sm text-gray-600">Happy Customers</div>
+              </div>
+              <div className="w-px h-12 bg-gray-300"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gray-900 mb-1">100%</div>
+                <div className="text-sm text-gray-600">Satisfaction Rate</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
