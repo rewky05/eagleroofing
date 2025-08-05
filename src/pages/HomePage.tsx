@@ -3,6 +3,27 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Clock, Award, Users, CheckCircle, Phone, Star, TrendingUp } from 'lucide-react';
 
 const HomePage = () => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+  };
+
   const services = [
     {
       title: 'New Roof Installation',
@@ -343,6 +364,170 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas & Lead Form */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Service Areas */}
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-4 py-2 mb-6">
+                  <TrendingUp className="w-4 h-4" />
+                  <span className="text-sm font-semibold">Service Areas</span>
+                </div>
+                <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">
+                  Proudly Serving the Greater Metro Area
+                </h2>
+                <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                  Eagle Roofing provides professional roofing services throughout the region. 
+                  Our experienced team is ready to serve your community with quality craftsmanship and reliable service.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200">
+                  <h3 className="font-bold text-gray-900 mb-2">Downtown & Central</h3>
+                  <p className="text-gray-600 text-sm">Complete coverage of downtown and central districts</p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200">
+                  <h3 className="font-bold text-gray-900 mb-2">North Suburbs</h3>
+                  <p className="text-gray-600 text-sm">Residential and commercial properties</p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200">
+                  <h3 className="font-bold text-gray-900 mb-2">South Communities</h3>
+                  <p className="text-gray-600 text-sm">New developments and established neighborhoods</p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200">
+                  <h3 className="font-bold text-gray-900 mb-2">East & West Regions</h3>
+                  <p className="text-gray-600 text-sm">Comprehensive regional coverage</p>
+                </div>
+              </div>
+              
+              <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
+                <p className="text-blue-800 font-medium mb-2">Not sure if we serve your area?</p>
+                <p className="text-blue-700 text-sm">
+                  Contact us today! We're always expanding our service area and may be able to help with your project.
+                </p>
+              </div>
+            </div>
+
+            {/* Lead Form */}
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Get Your Free Roofing Estimate
+                </h3>
+                <p className="text-gray-600">
+                  Ready to start your roofing project? Fill out the form below and we'll contact you within 24 hours.
+                </p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="lead-name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="lead-name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 bg-white"
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="lead-phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="lead-phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 bg-white"
+                      placeholder="(123) 456-7890"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="lead-email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="lead-email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 bg-white"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="lead-service" className="block text-sm font-medium text-gray-700 mb-2">
+                    Service Needed
+                  </label>
+                  <select
+                    id="lead-service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 bg-white"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="new-roof">New Roof Installation</option>
+                    <option value="flat-roof">Flat Roofing</option>
+                    <option value="synthetic-slats">Synthetic Slats</option>
+                    <option value="metal-roof">Metal Roofing</option>
+                    <option value="skylights">Skylights</option>
+                    <option value="repairs">Roof Repairs</option>
+                    <option value="emergency">Emergency Service</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="lead-message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Project Details
+                  </label>
+                  <textarea
+                    id="lead-message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={3}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 bg-white resize-none"
+                    placeholder="Tell us about your roofing project..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg hover:bg-blue-700 transition-all duration-200 font-semibold flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  Get Free Estimate
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                </button>
+                
+                <p className="text-xs text-gray-500 text-center">
+                  By submitting this form, you agree to be contacted about your roofing project. 
+                  We respect your privacy and will never share your information.
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </section>
